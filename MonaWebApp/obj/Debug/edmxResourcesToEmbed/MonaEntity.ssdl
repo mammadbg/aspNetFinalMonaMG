@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MonaWebAppDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="AuthorId" />
+    </Key>
+    <Property Name="AuthorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlogCategory">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryTags" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BlogDate" Type="date" Nullable="false" />
+    <Property Name="MakeUpArtist" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentAuthor" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentText" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Contacts">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactIntroText" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactText" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Judges">
+    <Key>
+      <PropertyRef Name="JudgeId" />
+    </Key>
+    <Property Name="JudgeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JudgeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JudgeStatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="JudgeSuccessStory" Type="text" />
+  </EntityType>
+  <EntityType Name="Models">
+    <Key>
+      <PropertyRef Name="ModelId" />
+    </Key>
+    <Property Name="ModelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModelTypeId" Type="int" />
+    <Property Name="ModelPosition" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelImage" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModelHoverImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelSuccessStory" Type="text" />
+    <Property Name="ModelFbAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelInstagramAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelTwitterAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelYoutubeAccount" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ModelType">
+    <Key>
+      <PropertyRef Name="ModelTypeId" />
+    </Key>
+    <Property Name="ModelTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModelTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Photograpeher" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MakeUpArtist" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SingleBlog">
+    <Key>
+      <PropertyRef Name="SingleBlogId" />
+    </Key>
+    <Property Name="SingleBlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SingleBlogName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SingleBlogAuthor" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SingleBlogBody" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SingleBlogQuote" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SingleBlogQuoteAuthor" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SingleBlogViewCount" Type="int" />
+    <Property Name="CommentCount" Type="int" />
+    <Property Name="BlogCategory" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tags">
+    <Key>
+      <PropertyRef Name="TagId" />
+    </Key>
+    <Property Name="TagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TagName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="MonaWebAppDbModelStoreContainer">
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlogCategory" EntityType="Self.BlogCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Judges" EntityType="Self.Judges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModelType" EntityType="Self.ModelType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SingleBlog" EntityType="Self.SingleBlog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

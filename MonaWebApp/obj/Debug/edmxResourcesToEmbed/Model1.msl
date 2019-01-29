@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Mona05DBModelStoreContainer" CdmEntityContainer="Mona05DBEntities">
+    <EntitySetMapping Name="BlogCategories">
+      <EntityTypeMapping TypeName="Mona05DBModel.BlogCategory">
+        <MappingFragment StoreEntitySet="BlogCategories">
+          <ScalarProperty Name="BlogCategoryId" ColumnName="BlogCategoryId" />
+          <ScalarProperty Name="BlogCategoryName" ColumnName="BlogCategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="Mona05DBModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+          <ScalarProperty Name="BlogName" ColumnName="BlogName" />
+          <ScalarProperty Name="BlogRegisterDate" ColumnName="BlogRegisterDate" />
+          <ScalarProperty Name="BlogAuthor" ColumnName="BlogAuthor" />
+          <ScalarProperty Name="BlogQuote" ColumnName="BlogQuote" />
+          <ScalarProperty Name="BlogQuoteAuthor" ColumnName="BlogQuoteAuthor" />
+          <ScalarProperty Name="BlogCategory" ColumnName="BlogCategory" />
+          <ScalarProperty Name="BlogTags" ColumnName="BlogTags" />
+          <ScalarProperty Name="BlogPhoto" ColumnName="BlogPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogTags">
+      <EntityTypeMapping TypeName="Mona05DBModel.BlogTag">
+        <MappingFragment StoreEntitySet="BlogTags">
+          <ScalarProperty Name="BlogTagId" ColumnName="BlogTagId" />
+          <ScalarProperty Name="BlogTagName" ColumnName="BlogTagName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HumanPositions">
+      <EntityTypeMapping TypeName="Mona05DBModel.HumanPosition">
+        <MappingFragment StoreEntitySet="HumanPositions">
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="PositionName" ColumnName="PositionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Humans">
+      <EntityTypeMapping TypeName="Mona05DBModel.Human">
+        <MappingFragment StoreEntitySet="Humans">
+          <ScalarProperty Name="HumanId" ColumnName="HumanId" />
+          <ScalarProperty Name="HumanName" ColumnName="HumanName" />
+          <ScalarProperty Name="HumanPosition" ColumnName="HumanPosition" />
+          <ScalarProperty Name="HumanEmail" ColumnName="HumanEmail" />
+          <ScalarProperty Name="HumanResume" ColumnName="HumanResume" />
+          <ScalarProperty Name="HumanSocialNetworkId" ColumnName="HumanSocialNetworkId" />
+          <ScalarProperty Name="HumanStory" ColumnName="HumanStory" />
+          <ScalarProperty Name="HumanRegisterDate" ColumnName="HumanRegisterDate" />
+          <ScalarProperty Name="HumanPhoto" ColumnName="HumanPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="Mona05DBModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+          <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="Mona05DBModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectModel" ColumnName="ProjectModel" />
+          <ScalarProperty Name="ProjectMakeUp" ColumnName="ProjectMakeUp" />
+          <ScalarProperty Name="ProjectPhotographer" ColumnName="ProjectPhotographer" />
+          <ScalarProperty Name="ProjectPhoto" ColumnName="ProjectPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialNetworks">
+      <EntityTypeMapping TypeName="Mona05DBModel.SocialNetwork">
+        <MappingFragment StoreEntitySet="SocialNetworks">
+          <ScalarProperty Name="SocialId" ColumnName="SocialId" />
+          <ScalarProperty Name="SocialName" ColumnName="SocialName" />
+          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Youtube" ColumnName="Youtube" />
+          <ScalarProperty Name="Pinterest" ColumnName="Pinterest" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

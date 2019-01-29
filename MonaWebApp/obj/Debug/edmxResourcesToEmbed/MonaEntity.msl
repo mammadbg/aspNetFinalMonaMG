@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MonaWebAppDbModelStoreContainer" CdmEntityContainer="MonaWebAppDbEntities">
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
+          <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogCategories">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.BlogCategory">
+        <MappingFragment StoreEntitySet="BlogCategory">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryTags" ColumnName="CategoryTags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+          <ScalarProperty Name="BlogName" ColumnName="BlogName" />
+          <ScalarProperty Name="BlogDate" ColumnName="BlogDate" />
+          <ScalarProperty Name="MakeUpArtist" ColumnName="MakeUpArtist" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+          <ScalarProperty Name="CommentAuthor" ColumnName="CommentAuthor" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Contact">
+        <MappingFragment StoreEntitySet="Contacts">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ContactIntroText" ColumnName="ContactIntroText" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactText" ColumnName="ContactText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Judges">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Judge">
+        <MappingFragment StoreEntitySet="Judges">
+          <ScalarProperty Name="JudgeId" ColumnName="JudgeId" />
+          <ScalarProperty Name="JudgeName" ColumnName="JudgeName" />
+          <ScalarProperty Name="JudgeStatus" ColumnName="JudgeStatus" />
+          <ScalarProperty Name="JudgeSuccessStory" ColumnName="JudgeSuccessStory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Models">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Model">
+        <MappingFragment StoreEntitySet="Models">
+          <ScalarProperty Name="ModelId" ColumnName="ModelId" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="ModelTypeId" ColumnName="ModelTypeId" />
+          <ScalarProperty Name="ModelPosition" ColumnName="ModelPosition" />
+          <ScalarProperty Name="ModelImage" ColumnName="ModelImage" />
+          <ScalarProperty Name="ModelHoverImage" ColumnName="ModelHoverImage" />
+          <ScalarProperty Name="ModelSuccessStory" ColumnName="ModelSuccessStory" />
+          <ScalarProperty Name="ModelFbAccount" ColumnName="ModelFbAccount" />
+          <ScalarProperty Name="ModelInstagramAccount" ColumnName="ModelInstagramAccount" />
+          <ScalarProperty Name="ModelTwitterAccount" ColumnName="ModelTwitterAccount" />
+          <ScalarProperty Name="ModelYoutubeAccount" ColumnName="ModelYoutubeAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModelTypes">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.ModelType">
+        <MappingFragment StoreEntitySet="ModelType">
+          <ScalarProperty Name="ModelTypeId" ColumnName="ModelTypeId" />
+          <ScalarProperty Name="ModelTypeName" ColumnName="ModelTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="Photograpeher" ColumnName="Photograpeher" />
+          <ScalarProperty Name="MakeUpArtist" ColumnName="MakeUpArtist" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SingleBlogs">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.SingleBlog">
+        <MappingFragment StoreEntitySet="SingleBlog">
+          <ScalarProperty Name="SingleBlogId" ColumnName="SingleBlogId" />
+          <ScalarProperty Name="SingleBlogName" ColumnName="SingleBlogName" />
+          <ScalarProperty Name="SingleBlogAuthor" ColumnName="SingleBlogAuthor" />
+          <ScalarProperty Name="SingleBlogBody" ColumnName="SingleBlogBody" />
+          <ScalarProperty Name="SingleBlogQuote" ColumnName="SingleBlogQuote" />
+          <ScalarProperty Name="SingleBlogQuoteAuthor" ColumnName="SingleBlogQuoteAuthor" />
+          <ScalarProperty Name="SingleBlogViewCount" ColumnName="SingleBlogViewCount" />
+          <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+          <ScalarProperty Name="BlogCategory" ColumnName="BlogCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="MonaWebAppDbModel.Tag">
+        <MappingFragment StoreEntitySet="Tags">
+          <ScalarProperty Name="TagId" ColumnName="TagId" />
+          <ScalarProperty Name="TagName" ColumnName="TagName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

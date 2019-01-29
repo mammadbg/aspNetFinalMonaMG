@@ -1,0 +1,33 @@
+﻿@model MonaWebApp.Models.EntityFramework.Blog
+@{
+    ViewBag.Title = "CreateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create Blog</h2>
+
+@using (Html.BeginForm("CreateBlog", "Admin", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogName, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogRegisterDate)
+    @Html.TextBoxFor(m => m.BlogRegisterDate, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogAuthor, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogQuote, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogQuoteAuthor, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogCategory1, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogTag, new { @class = "form-control" })
+    @Html.LabelFor(m => m.BlogName)
+    @Html.TextBoxFor(m => m.BlogPhoto, new { @class = "form-control" })
+
+</div>
+    @Html.HiddenFor(m => m.BlogId)
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+

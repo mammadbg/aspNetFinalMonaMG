@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Mona05DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BlogCategories">
+    <Key>
+      <PropertyRef Name="BlogCategoryId" />
+    </Key>
+    <Property Name="BlogCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogCategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="BlogId" />
+    </Key>
+    <Property Name="BlogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BlogRegisterDate" Type="datetime" />
+    <Property Name="BlogAuthor" Type="int" />
+    <Property Name="BlogQuote" Type="text" />
+    <Property Name="BlogQuoteAuthor" Type="int" />
+    <Property Name="BlogCategory" Type="int" />
+    <Property Name="BlogTags" Type="int" />
+    <Property Name="BlogPhoto" Type="int" />
+  </EntityType>
+  <EntityType Name="BlogTags">
+    <Key>
+      <PropertyRef Name="BlogTagId" />
+    </Key>
+    <Property Name="BlogTagId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogTagName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HumanPositions">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PositionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Humans">
+    <Key>
+      <PropertyRef Name="HumanId" />
+    </Key>
+    <Property Name="HumanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HumanName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HumanPosition" Type="int" />
+    <Property Name="HumanEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="HumanResume" Type="nvarchar" MaxLength="50" />
+    <Property Name="HumanSocialNetworkId" Type="int" />
+    <Property Name="HumanStory" Type="nvarchar" MaxLength="50" />
+    <Property Name="HumanRegisterDate" Type="date" />
+    <Property Name="HumanPhoto" Type="int" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="PhotoId" />
+    </Key>
+    <Property Name="PhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhotoName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectName" Type="int" Nullable="false" />
+    <Property Name="ProjectModel" Type="int" Nullable="false" />
+    <Property Name="ProjectMakeUp" Type="int" Nullable="false" />
+    <Property Name="ProjectPhotographer" Type="int" Nullable="false" />
+    <Property Name="ProjectPhoto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SocialNetworks">
+    <Key>
+      <PropertyRef Name="SocialId" />
+    </Key>
+    <Property Name="SocialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SocialName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Facebook" Type="nvarchar" MaxLength="50" />
+    <Property Name="Twitter" Type="nvarchar" MaxLength="50" />
+    <Property Name="Youtube" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pinterest" Type="nvarchar" MaxLength="50" />
+    <Property Name="Instagram" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_BlogAToHumanId">
+    <End Role="Humans" Type="Self.Humans" Multiplicity="0..1" />
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Humans">
+        <PropertyRef Name="HumanId" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="BlogAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogCategoryToBlogCategoryId">
+    <End Role="BlogCategories" Type="Self.BlogCategories" Multiplicity="0..1" />
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogCategories">
+        <PropertyRef Name="BlogCategoryId" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="BlogCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogCategoryToBlogTags">
+    <End Role="BlogTags" Type="Self.BlogTags" Multiplicity="0..1" />
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BlogTags">
+        <PropertyRef Name="BlogTagId" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="BlogTags" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogPhotoToPhotoId">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="PhotoId" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="BlogPhoto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BlogQAToHumanId">
+    <End Role="Humans" Type="Self.Humans" Multiplicity="0..1" />
+    <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Humans">
+        <PropertyRef Name="HumanId" />
+      </Principal>
+      <Dependent Role="Blogs">
+        <PropertyRef Name="BlogQuoteAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HumanPhotoToPhotoId">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="0..1" />
+    <End Role="Humans" Type="Self.Humans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="PhotoId" />
+      </Principal>
+      <Dependent Role="Humans">
+        <PropertyRef Name="HumanPhoto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HumanPositionTooPositionId">
+    <End Role="HumanPositions" Type="Self.HumanPositions" Multiplicity="0..1" />
+    <End Role="Humans" Type="Self.Humans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HumanPositions">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Humans">
+        <PropertyRef Name="HumanPosition" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HumansToSN">
+    <End Role="SocialNetworks" Type="Self.SocialNetworks" Multiplicity="0..1" />
+    <End Role="Humans" Type="Self.Humans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SocialNetworks">
+        <PropertyRef Name="SocialId" />
+      </Principal>
+      <Dependent Role="Humans">
+        <PropertyRef Name="HumanSocialNetworkId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectMakeUpToPhotoId">
+    <End Role="Humans" Type="Self.Humans" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Humans">
+        <PropertyRef Name="HumanId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="ProjectMakeUp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectModelToHuman">
+    <End Role="Humans" Type="Self.Humans" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Humans">
+        <PropertyRef Name="HumanId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="ProjectModel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectPhotographerToPhotoId">
+    <End Role="Humans" Type="Self.Humans" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Humans">
+        <PropertyRef Name="HumanId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="ProjectPhotographer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectPhotoToPhotoId">
+    <End Role="Photos" Type="Self.Photos" Multiplicity="1" />
+    <End Role="Projects" Type="Self.Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="PhotoId" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="ProjectPhoto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Mona05DBModelStoreContainer">
+    <EntitySet Name="BlogCategories" EntityType="Self.BlogCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlogTags" EntityType="Self.BlogTags" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HumanPositions" EntityType="Self.HumanPositions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Humans" EntityType="Self.Humans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SocialNetworks" EntityType="Self.SocialNetworks" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BlogAToHumanId" Association="Self.FK_BlogAToHumanId">
+      <End Role="Humans" EntitySet="Humans" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogCategoryToBlogCategoryId" Association="Self.FK_BlogCategoryToBlogCategoryId">
+      <End Role="BlogCategories" EntitySet="BlogCategories" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogCategoryToBlogTags" Association="Self.FK_BlogCategoryToBlogTags">
+      <End Role="BlogTags" EntitySet="BlogTags" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogPhotoToPhotoId" Association="Self.FK_BlogPhotoToPhotoId">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BlogQAToHumanId" Association="Self.FK_BlogQAToHumanId">
+      <End Role="Humans" EntitySet="Humans" />
+      <End Role="Blogs" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HumanPhotoToPhotoId" Association="Self.FK_HumanPhotoToPhotoId">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Humans" EntitySet="Humans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HumanPositionTooPositionId" Association="Self.FK_HumanPositionTooPositionId">
+      <End Role="HumanPositions" EntitySet="HumanPositions" />
+      <End Role="Humans" EntitySet="Humans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HumansToSN" Association="Self.FK_HumansToSN">
+      <End Role="SocialNetworks" EntitySet="SocialNetworks" />
+      <End Role="Humans" EntitySet="Humans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectMakeUpToPhotoId" Association="Self.FK_ProjectMakeUpToPhotoId">
+      <End Role="Humans" EntitySet="Humans" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectModelToHuman" Association="Self.FK_ProjectModelToHuman">
+      <End Role="Humans" EntitySet="Humans" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectPhotographerToPhotoId" Association="Self.FK_ProjectPhotographerToPhotoId">
+      <End Role="Humans" EntitySet="Humans" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectPhotoToPhotoId" Association="Self.FK_ProjectPhotoToPhotoId">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
